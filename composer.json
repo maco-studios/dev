@@ -1,0 +1,46 @@
+{
+    "name": "maco-studios/dev",
+    "type": "magento-module",
+    "require": {
+        "fakerphp/faker": "^1.24",
+        "maco-studios/console": "*"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48",
+        "ergebnis/license": "^2.7",
+        "friendsofphp/php-cs-fixer": "^3.87"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/maco-studios/console.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload-dev": {
+        "classmap": [
+            "src/Database"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    },
+    "extra": {
+        "composer-normalize": {
+            "indent-size": 4,
+            "indent-style": "space"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@composer normalize"
+        ],
+        "post-update-cmd": [
+            "@composer normalize"
+        ],
+        "cs:fix": "php-cs-fixer fix"
+    }
+}
